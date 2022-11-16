@@ -11,6 +11,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider'; 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import {MatListModule} from '@angular/material/list'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatDividerModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    MatListModule
+    
     
 
   ],

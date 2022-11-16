@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { ShippingLabelServiceService } from '../shipping-label-service.service';
 import { ShippingLabelRequest } from './ShippingLabelRequest';
+import { ShippingLabelResponse } from './ShippingLabelResponse';
 
 @Component({
   selector: 'app-shipping-label',
@@ -9,8 +10,11 @@ import { ShippingLabelRequest } from './ShippingLabelRequest';
 })
 export class ShippingLabelComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private shippingLabelServiceService:ShippingLabelServiceService) { }
   shippingLabelRequest: ShippingLabelRequest=new ShippingLabelRequest();
+  shippingLabelRes: ShippingLabelResponse = new ShippingLabelResponse;
+  shippingLabelResString!:string;
+  result:boolean=false;
   ngOnInit(): void {
     this.shippingLabelRequest.clientId="";
     this.shippingLabelRequest.clientSecret="";
@@ -24,10 +28,14 @@ export class ShippingLabelComponent implements OnInit {
    }
 
    public createLabel(){
+    this.result=true;
    console.log(JSON.stringify(this.shippingLabelRequest));
-    const headers={'content-type':'application/json'}
-    this.http.post('http://localhost:8080/createLabel',JSON.stringify(this.shippingLabelRequest),{'headers':headers})
-   .subscribe(data=>console.log(data));
+   this.shippingLabelServiceService.getShippingLabel(this.shippingLabelRequest)
+    .subscribe(data=>{
+      console.log(data);
+      this.shippingLabelRes=data;
+      this.shippingLabelResString=JSON.stringify(data);
+    })
     
    }
 

@@ -1,17 +1,20 @@
 <form id="myForm" (submit)="createLabel()">
-<div class="report-form-center">
-<div class="report-form-center">
-    <div  class="report-full-width">
-  
-  
-        <div  class="report-full-width">
-            <mat-form-field >
-                <mat-label>Client Id</mat-label>
-                <input placeholder ="Client Id"  matInput   [(ngModel)]="shippingLabelRequest.clientId" name="clientId" required>
-                <mat-error *ngIf="shippingLabelRequest.clientId===''">you must enter a value</mat-error>
-            </mat-form-field>
+ <div class="top-box">
+ 
 
-        </div>
+<div class="report-form-center">
+    <Label class="label-width">
+        Generate Shipping Label
+      </Label>
+    
+    <div class="report-full-width">
+        <mat-form-field  class="mat-form-field">
+            <mat-label>Client Id</mat-label>
+            <input placeholder ="Client Id"  matInput   [(ngModel)]="shippingLabelRequest.clientId" name="clientId" required>
+            <mat-error *ngIf="shippingLabelRequest.clientId===''">you must enter a value</mat-error>
+        </mat-form-field>
+
+    </div>
   
         <div  class="report-full-width">
             <mat-form-field >
@@ -84,8 +87,8 @@
             </mat-form-field>
 
         </div>
-    </div>
-       
+    
+ 
 
 <mat-divider></mat-divider>
 <div class="example-button-row">
@@ -93,8 +96,21 @@
 
     </button>
 </div>
-  
-</div> 
 
+<div  class="report-full-width" *ngIf="result===true" >
+   
+    <h4>Label Response</h4> 
+  <span></span>
+<div class="report-full-width">
+   {{shippingLabelResString}}
+    
+
+</div>  
+
+</div>   
+
+
+    
+</div>
 </div>
 </form>

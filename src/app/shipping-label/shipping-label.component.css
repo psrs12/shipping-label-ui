@@ -1,21 +1,31 @@
 .report-form {
-    min-width: 100px;
-    max-width: 800px;
+    min-width: 500px;
+    max-width: 1000px;
     width: 100%;
     
   }
   .report-form-center {
     
-    width: 50px;
-    height: 50px;
-    margin-left: 10%;
+    width: 500px;
+    height: 100px;
+    margin-left: 40%;
    
   }
   
-  
+  .top-box{
+    position: relative;
+    top: 32px;
+ }
+
+ .label-width {
+  width: 300%;
+  left:100px;
+  top: 65px;
+}
+
   .report-full-width {
-    width: 100%;
-    left:50px;
+    width: 300%;
+    left:100px;
   }
 
   .static {
@@ -66,7 +76,9 @@
     margin: 8px;
   }
 
-  
+  .mat-form-field{
+    width:500px !important;
+ }
   
   .example-label {
     display: table-cell;
