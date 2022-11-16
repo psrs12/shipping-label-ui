@@ -1,0 +1,100 @@
+<form id="myForm" (submit)="createLabel()">
+<div class="report-form-center">
+<div class="report-form-center">
+    <div  class="report-full-width">
+  
+  
+        <div  class="report-full-width">
+            <mat-form-field >
+                <mat-label>Client Id</mat-label>
+                <input placeholder ="Client Id"  matInput   [(ngModel)]="shippingLabelRequest.clientId" name="clientId" required>
+                <mat-error *ngIf="shippingLabelRequest.clientId===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+  
+        <div  class="report-full-width">
+            <mat-form-field >
+                <mat-label>Client Secret</mat-label>
+                <input placeholder ="Client Secret"  matInput   [(ngModel)]="shippingLabelRequest.clientSecret"  name="clientSecret" required>
+                <mat-error *ngIf="shippingLabelRequest.clientSecret===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+        
+        <div  class="report-full-width">
+            <mat-form-field  >
+                <mat-label>Refresh Token</mat-label>
+                <textarea placeholder="Refresh Token"  matInput  name ="refreshToken" cdkTextareaAutosize  cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50" [(ngModel)]="shippingLabelRequest.refreshToken"  required></textarea>
+                <mat-error *ngIf="shippingLabelRequest.refreshToken===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div> 
+        <div  class="report-full-width">
+
+            <mat-form-field >
+                <mat-label>Access Key</mat-label>
+                <input placeholder ="Access Key"  matInput  [(ngModel)]="shippingLabelRequest.accessKey" name="accessKey" required>
+                <mat-error *ngIf="shippingLabelRequest.accessKey===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div  class="report-full-width">
+
+            <mat-form-field  >
+                <mat-label>Secrect Key</mat-label>
+                <input placeholder ="Secrect Key"  matInput   [(ngModel)]="shippingLabelRequest.secretKey"  name="secretKey" required>
+                <mat-error *ngIf="shippingLabelRequest.secretKey===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div   class="report-full-width">
+            <mat-form-field >
+                <mat-label>Region</mat-label>
+                <mat-select [(ngModel)]="shippingLabelRequest.region" name="region">
+                  <mat-option value="us-east-1">us-east-1</mat-option>
+                </mat-select>
+              </mat-form-field>
+ 
+        </div>
+        <div  class="report-full-width">
+
+            <mat-form-field  >
+                <mat-label>Purchase Order Number</mat-label>
+                <input placeholder ="Purchase Order Number"  matInput  [(ngModel)]="shippingLabelRequest.orderNumber" name="orderNumber" required>
+                <mat-error *ngIf="shippingLabelRequest.orderNumber===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div class="report-full-width" >
+
+            <mat-form-field >
+                <mat-label>Selling Party Id</mat-label>
+                <input placeholder ="Selling Party Id"  matInput   [(ngModel)]="shippingLabelRequest.sellingPartyId" name="sellingPartyId" required>
+                <mat-error *ngIf="shippingLabelRequest.sellingPartyId===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+        <div  class="report-full-width">
+
+            <mat-form-field >
+                <mat-label>Ship From Party Id</mat-label>
+                <input placeholder ="report-full-width"  matInput   [(ngModel)]="shippingLabelRequest.shipFromPartyId" name="shipFromPartyId" required>
+                <mat-error *ngIf="shippingLabelRequest.shipFromPartyId===''">you must enter a value</mat-error>
+            </mat-form-field>
+
+        </div>
+    </div>
+       
+
+<mat-divider></mat-divider>
+<div class="example-button-row">
+    <button mat-raised-button type="submit" > Create Shipping Label
+
+    </button>
+</div>
+  
+</div> 
+
+</div>
+</form>
