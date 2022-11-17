@@ -118,7 +118,7 @@
     </button>
 </div>
 
-<div  class="report-full-width" *ngIf="result===true && shippingLabelRes.errors.length===0" >
+<div  class="report-full-width" *ngIf="result===true && shippingLabelRes.errors!==null &&shippingLabelRes.errors.length===0" >
    
     <h4>Label Response</h4> 
   <span></span>
