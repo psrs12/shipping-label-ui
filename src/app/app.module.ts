@@ -12,11 +12,13 @@ import {MatDividerModule} from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import {MatListModule} from '@angular/material/list'; 
-import {MatRadioModule} from '@angular/material/radio'; 
+import {MatRadioModule} from '@angular/material/radio';
+import { SafePipePipe } from './safe-pipe.pipe'; 
 @NgModule({
   declarations: [
     AppComponent,
-    ShippingLabelComponent
+    ShippingLabelComponent,
+    SafePipePipe
   ],
   imports: [
     BrowserModule,

@@ -1,153 +1,341 @@
-<form id="myForm" (submit)="createLabel()">
- <div class="top-box">
- 
+<body id="Home">
+    <div class="content row" id="TopNavBar">
+        <div class="col-sm-12">
+            <nav class="navbar navbar-custom navbar-static-top navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                            data-target="#ScratchPadHeader">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a id="Logo" class="navbar-brand" href="#"><img
+                                style="max-width:160px; margin-top:-10px;margin-left:0px"
+                                src="HomeScreen1_files/AmazonDFLogo.png" alt="ShipLabelAPI Scratchpad (beta)"></a>
+                    </div>
 
-<div class="report-form-center">
-    <Label class="label-width">
-        Generate Shipping Label
-      </Label>
-    
-    <div class="report-full-width">
-        <mat-form-field  class="mat-form-field">
-            <mat-label>Client Id</mat-label>
-            <input placeholder ="Client Id"  matInput   [(ngModel)]="shippingLabelRequest.clientId" name="clientId" required>
-            <mat-error *ngIf="shippingLabelRequest.clientId===''">you must enter a value</mat-error>
-        </mat-form-field>
-
-    </div>
-  
-        <div  class="report-full-width">
-            <mat-form-field >
-                <mat-label>Client Secret</mat-label>
-                <input placeholder ="Client Secret"  matInput   [(ngModel)]="shippingLabelRequest.clientSecret"  name="clientSecret" required>
-                <mat-error *ngIf="shippingLabelRequest.clientSecret===''">you must enter a value</mat-error>
-            </mat-form-field>
-
+                </div><!-- /.container-fluid -->
+            </nav><!-- Navigation Header -->
         </div>
+    </div><!-- Navigation Header Row -->
+
+    <div class="container-fluid">
+        <div class="row-offcanvas">
+            <div id="Sidebar">
+                <!-- Left Panel Starts here -->
+                <div class="col-sm-12">
+                    <div class="mini-submenu" style="display: none;">
+                        <span class="glyphicon glyphicon-chevron-right" style="padding:4px;"></span>
+                    </div>
+                    <div id="LeftSidePanelMinWidth" class="panel panel-default" style="min-width: 210px;">
+                        <div class="panel-heading-a">Select operation
+                            <span id="SlideSubmenu" href="#" class="glyphicon glyphicon-chevron-left pull-right"></span>
+                        </div>
+                        <div id="LeftSidePanel" class="panel-body" style="height: 491px;">
+                            <div class="operations" id="OperationsList">
+                                <!-- Operations Go Here -->
+                                <div class="content">
+                                    <p class="type-of-operation"><a class="LeftPanelExpander" href="#"
+                                            data-toggle="collapse" data-target="#Item_list"><span id="SelectorIconItem"
+                                                class="glyphicon glyphicon-minus"></span></a> Direct Fulfillment APIs
+                                    </p>
+                                </div>
+                                <ul id="Item_list" class="nav-a collapse in">
+                                    <li class="left-panel-list name"><a href="#" id="GetVariations_link">Inventory
+                                            API</a></li>
+                                    <li class="left-panel-list name"><a href="#" id="GetItems_link">Orders API</a></li>
+                                    <li class="left-panel-list name"><a href="#" id="SearchItems_link">ShipLabel API</a>
+                                    </li>
+                                    <li class="left-panel-list name"><a href="#"
+                                            id="SearchItems_link">ShipmentConfirmation API</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div><!-- Sidebar Panel -->
+            <div id="RightSection">
+
+                <div id="OperationsPage" class="col-sm-12" style="">
+                    <div class="panel panel-default" id="AuthPanel">
+                        <!--This is section for Signing -->
+                        <div id="SelIconCP" class="panel-heading-a" data-toggle="collapse"
+                            data-target="#CommonParamsPanel" aria-expanded="true">
+                            Request parameters
+                            <span id="CommonParamsHeaderCollapse"></span>
+                            <span class="glyphicon pull-right glyphicon-chevron-down">
+                            </span>
+                        </div>
+                        <div class="panel-collapse collapse in" id="CommonParamsPanel" aria-expanded="true" style="">
+                            <div class="panel-body">
+                                <div id="universal_call" style="">
+                                    <form data-toggle="validator" class="form-horizontal" novalidate="true"
+                                        (submit)="createLabel()">
+                                        <fieldset>
+                                            <div class="CommonRequestParams">
+
+                                                <div class="form-group">
+                                                    <div class="col-sm-3">
+                                                        <label for="SelectPartnerType">Region</label>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <select id="Region" [(ngModel)]="shippingLabelRequest.region"
+                                                            name="region" class="form-control-a">
+                                                            <option value="us-east-1">us-east-1</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-sm-6 parameter-description">
+                                                        <p>AWS region: For US, it is us-east-1</p>
+                                                    </div>
+                                                </div><!-- Type of Partner Form -->
+                                                <div class="form-group has-feedback">
+                                                    <div class="col-sm-3">
+                                                        <label for="PartnerTag">Client Id</label>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <input class="form-control-a" 
+                                                            [(ngModel)]="shippingLabelRequest.clientId" name="clientId"
+                                                            required>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                    <div class="col-sm-6 parameter-description">
+                                                        <p>Client Identifier generated from your Vendor Central
+                                                            application</p>
+                                                    </div>
+                                                </div><!-- Partner Tag Form -->
+                                                <div class="form-group has-feedback">
+                                                    <div class="col-sm-3">
+                                                        <label for="PartnerTag">Client Secret</label>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <input  class="form-control-a" type="password"
+                                                            [(ngModel)]="shippingLabelRequest.clientSecret"
+                                                            name="clientSecret" required>
+                                                        <div class="help-block with-errors"></div>
+                                                    </div>
+                                                    <div class="col-sm-6 parameter-description">
+                                                        <p>Client Identifier generated from your Vendor Central
+                                                            application</p>
+                                                    </div>
+                                                </div><!-- Partner Tag Form -->
+                                            </div>
+                                            <span class="secrets">
+                                                <span class="keys">
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3">
+                                                            <label for="RefreshToken">Refresh Token</label>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <textarea  name="refreshToken" 
+                                                               class="form-control-a"
+                                                                cdkTextareaAutosize cdkAutosizeMinRows="2"
+                                                                cdkAutosizeMaxRows="50"
+                                                                [(ngModel)]="shippingLabelRequest.refreshToken"
+                                                                required></textarea>
+                                                        </div>
+                                                        <div class="col-sm-6 parameter-description">
+                                                            <p>Refresh Token generated from your Vendor Central
+                                                                application once the app client is authorized</p>
+                                                        </div>
+                                                    </div>
+                                                    <!--Acces Key Form Group -->
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3">
+                                                            <label for="SecretAccessKey">Access Key</label>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <input  class="form-control-a"
+                                                                [(ngModel)]="shippingLabelRequest.accessKey"
+                                                                name="accessKey" required>
+                                                        </div>
+                                                        <div class="col-sm-6 parameter-description">
+                                                            <p>AWS Access Key that uniquely identifies you</p>
+                                                        </div>
+                                                    </div><!-- Secret Access Key Form -->
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3">
+                                                            <label for="SecretAccessKey">Secret Access Key</label>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <input  type="password"
+                                                            class="form-control-a"
+                                                                [(ngModel)]="shippingLabelRequest.secretKey"
+                                                                name="secretKey" required>
+                                                        </div>
+                                                        <div class="col-sm-6 parameter-description">
+                                                            <p>AWS Secret Key that uniquely identifies you</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3">
+                                                            <label for="PurchaseOrder">PurchaseOrder#</label>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <input 
+                                                            class="form-control-a"
+                                                                [(ngModel)]="shippingLabelRequest.orderNumber"
+                                                                name="orderNumber" required>
+                                                        </div>
+                                                        <div class="col-sm-6 parameter-description">
+                                                            <p>PO# of your live order for which you would like to
+                                                                request and retrieve the Shipping Label</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-sm-3">
+                                                            <mat-radio-group
+                                                                aria-label="Single or Multi Container Shipping"
+                                                                [(ngModel)]="singleShipping" name="containerListGrp">
+                                                                <mat-radio-button [value]=true [checked]=true>Single-box Request
+                                                                </mat-radio-button>
+                                                                &nbsp;&nbsp;
+                                                                <mat-radio-button [value]=false>Multi-box Request</mat-radio-button>
+                                                            </mat-radio-group>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="singleShipping===true">
+                                                        <div class="form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="SellingPartyID">SellingPartyID</label>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input  class="form-control-a"
+                                                                    [(ngModel)]="shippingLabelRequest.sellingPartyId"
+                                                                    name="sellingPartyId" required>
+                                                            </div>
+                                                            <div class="col-sm-6 parameter-description">
+                                                                <p>Your Vendor Code</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <div class="col-sm-3">
+                                                                <label for="SecretAccessKey">ShipFromPartyID</label>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <input class="form-control-a" 
+                                                                    [(ngModel)]="shippingLabelRequest.shipFromPartyId"
+                                                                    name="shipFromPartyId" required>
+                                                            </div>
+                                                            <div class="col-sm-6 parameter-description">
+                                                                <p>Your Warehouse ID</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div *ngIf="singleShipping===false">
+                                                        <div class="col-sm-3">
+                                                            <label for="ContainerList">ContainerList</label>
+                                                        </div>
+                                                        <div class="col-sm-3">
+                                                            <textarea  name="containerList" class="form-control-a"
+                                                                cdkTextareaAutosize cdkAutosizeMinRows="5"
+                                                                cdkAutosizeMaxRows="100"
+                                                                [(ngModel)]="shippingLabelRequest.containerList"
+                                                                required></textarea>
+                                                        </div>
+                                                        <div class="col-sm-6 parameter-description">
+                                                            <p>Enter Shipping Container List JSON payload</p>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                        </fieldset>
+                                        <div class="panel-footer">
+                                            <div class="col-sm-3">
+                                                <!-- Toggle Button For JSON -->
+                                            </div>
+                                            <div class="col-sm-3">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <button id="RequestButton" class="btn btn-primary-a pull-right"
+                                                    type="submit" style="margin-left:10px;">Run request</button>
+                                            </div>
+
+                                        </div><!-- Request Parameter Panel Footer -->
+                                    </form>
+                                </div>
+                            </div><!-- End of Panel Body -->
+                        </div>
+                        <!--End of Collapsable Common panel-->
+                    </div>
+                    <!--End of Signing Panel-->
+
+                </div>
+                <!--Panel for input Closed -->
+
+            </div>
+
+            <p class="tab-header">Request details</p>
+
+            <div class="panel panel-default">
+                <!-- Request Details Panel -->
+
+                <div id="SelIconRURL" class="panel-heading-a" data-toggle="collapse" data-target="#ReqPostPanel"><span
+                        id="requestType">JSON Payload</span><span
+                        class="glyphicon glyphicon-chevron-down pull-right"></span></div>
+
+                <div class="panel-body">
+
+                    <form id="PayloadForm">
+                        <div class="form-group" style="margin-bottom:1px;">
+
+                            <div id="PayloadBox">
+                                <textarea class="form-control" rows="7" cols="40"
+                                    id="PayloadTextArea">{{requestJSON | json}}</textarea>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div><!-- Request Panel -->
+
+        <!-- Response Panel -->
+        <p class="tab-header">Response details</p>
+        <div class="hr-a"></div>
+        <ul class="nav nav-tabs-a" id="ResponseTabs">
+
+            <li id="JSONResponse" class="ResponseTab"><a href="#JSONSection">JSON response</a></li>
+
+        </ul><!-- Tabs for Response -->
         
-        <div  class="report-full-width">
-            <mat-form-field  >
-                <mat-label>Refresh Token</mat-label>
-                <textarea placeholder="Refresh Token"  matInput  name ="refreshToken" cdkTextareaAutosize  cdkAutosizeMinRows="1" cdkAutosizeMaxRows="50" [(ngModel)]="shippingLabelRequest.refreshToken"  required></textarea>
-                <mat-error *ngIf="shippingLabelRequest.refreshToken===''">you must enter a value</mat-error>
-            </mat-form-field>
+        <div class="tab-content">
+           
+            <div id="RenderedSection" >
+                
 
-        </div> 
-        <div  class="report-full-width">
-
-            <mat-form-field >
-                <mat-label>Access Key</mat-label>
-                <input placeholder ="Access Key"  matInput  [(ngModel)]="shippingLabelRequest.accessKey" name="accessKey" required>
-                <mat-error *ngIf="shippingLabelRequest.accessKey===''">you must enter a value</mat-error>
-            </mat-form-field>
-
+              
+               <span id="FullScreenJSON" class="btn-clipboard-Code" data-toggle="tooltip" data-placement="right"
+                        title="" data-original-title="Full screen">
+                        <span class="glyphicon glyphicon-modal-window"></span>
+                    </span>
+                        
+                <code  class="json hljs" id="JSONHighlighted" >
+                   
+                    <div class="pre-scrollable" >
+                        
+          <span class="hljs-value">
+           
+        <div   *ngIf="result===true" >
+            <span >{{shippingLabelResString | json}}</span>
         </div>
-        <div  class="report-full-width">
-
-            <mat-form-field  >
-                <mat-label>Secret Key</mat-label>
-                <input placeholder ="Secret Key"  matInput   [(ngModel)]="shippingLabelRequest.secretKey"  name="secretKey" required>
-                <mat-error *ngIf="shippingLabelRequest.secretKey===''">you must enter a value</mat-error>
-            </mat-form-field>
-
+        <div   *ngIf="result===false" >
+            <ul  *ngFor="let error of shippingLabelRes.errors">
+             <li class="hljs-string">{{error.message}}</li>
+             <li class="hljs-string">{{error.message}}</li>
+            </ul>
         </div>
-        <div   class="report-full-width">
-            <mat-form-field >
-                <mat-label>Region</mat-label>
-                <mat-select [(ngModel)]="shippingLabelRequest.region" name="region">
-                  <mat-option value="us-east-1">us-east-1</mat-option>
-                </mat-select>
-              </mat-form-field>
- 
+        </span>
+                    </div>
+    </code>
+
+              
+
+            </div>
         </div>
-        <div  class="report-full-width">
+    </div><!-- Tab-Content Response Tabs -->
 
-            <mat-form-field  >
-                <mat-label>Purchase Order Number</mat-label>
-                <input placeholder ="Purchase Order Number"  matInput  [(ngModel)]="shippingLabelRequest.orderNumber" name="orderNumber" required>
-                <mat-error *ngIf="shippingLabelRequest.orderNumber===''">you must enter a value</mat-error>
-            </mat-form-field>
 
-        </div>
-        <div class="report-full-width" >
-
-                <mat-label>Single or Multi Container Shipping</mat-label>
-                    <mat-radio-group aria-label="Single or Multi Container Shipping" [(ngModel)]="singleShipping" name="containerListGrp">
-                    <mat-radio-button [value]=true [checked]=true>single </mat-radio-button>
-                    <mat-radio-button [value]=false >multi</mat-radio-button>
-                    </mat-radio-group>
-            
-        </div>
-        <div *ngIf="singleShipping===true">
-        <div class="report-full-width" >
-
-            <mat-form-field >
-                <mat-label>Selling Party Id</mat-label>
-                <input placeholder ="Selling Party Id"  matInput   [(ngModel)]="shippingLabelRequest.sellingPartyId" name="sellingPartyId" required>
-                <mat-error *ngIf="shippingLabelRequest.sellingPartyId===''">you must enter a value</mat-error>
-            </mat-form-field>
-
-        </div>
-       
-        <div  class="report-full-width">
-
-            <mat-form-field >
-                <mat-label>Ship From Party Id</mat-label>
-                <input placeholder ="report-full-width"  matInput   [(ngModel)]="shippingLabelRequest.shipFromPartyId" name="shipFromPartyId" required>
-                <mat-error *ngIf="shippingLabelRequest.shipFromPartyId===''">you must enter a value</mat-error>
-            </mat-form-field>
-        </div>
-        </div>
-        <div *ngIf="singleShipping===false">
-            <div  class="report-full-width">
-                <mat-form-field  >
-                    <mat-label>Containers</mat-label>
-                    <textarea placeholder="containers"  matInput  name ="containerList" cdkTextareaAutosize  cdkAutosizeMinRows="5" cdkAutosizeMaxRows="100" [(ngModel)]="shippingLabelRequest.containerList"  required></textarea>
-                    <mat-error *ngIf="shippingLabelRequest.containerList===''">you must enter a value</mat-error>
-                </mat-form-field>
-    
-            </div> 
-        </div>
-    
- 
-
-<mat-divider></mat-divider>
-<div class="example-button-row">
-    <button mat-raised-button type="submit" > Create Shipping Label
-
-    </button>
-</div>
-
-<div  class="report-full-width" *ngIf="result===true" >
-   
-    <h4>Label Response</h4> 
-  <span></span>
-<div class="report-full-width">
-   {{shippingLabelResString}}
-    
-
-</div>  
-
-</div>   
-<div  class="report-full-width" *ngIf="result===false" >
-   
-    <h4>Label Response</h4> 
-  <span></span>
-<div class="report-full-width">
-   
-    <mat-list *ngFor="let error of shippingLabelRes.errors">
-        
-         
-           <mat-list-item >{{error.message}}</mat-list-item>
-           <mat-list-item >{{error.details}}</mat-list-item>
-         
-      </mat-list>
-
-</div>  
-
-</div>  
-
-    
-</div>
-</div>
-</form>
+    <div [innerHtml]="rawHtml | safePipe"></div>

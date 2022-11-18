@@ -16,4 +16,11 @@ export class ShippingLabelServiceService {
     return   this.http.post<ShippingLabelResponse>('http://localhost:8080/createLabel',JSON.stringify(shippingLabelRequest),
     {'headers':headers});
   }
+
+  public getRawHtml():Observable<string>{
+    const requestOptions:Object={
+      responseType:'text'
+    }
+    return   this.http.get<string>('assets/code_snippet.html',requestOptions)
+  }
 }
