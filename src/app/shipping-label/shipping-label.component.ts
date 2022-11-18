@@ -29,7 +29,7 @@ export class ShippingLabelComponent implements OnInit {
    }
 
    public createLabel(){
-    this.shippingLabelRes = new ShippingLabelResponse;
+   
     this.result=true;
    console.log(JSON.stringify(this.shippingLabelRequest));
    this.shippingLabelServiceService.getShippingLabel(this.shippingLabelRequest)
@@ -37,6 +37,9 @@ export class ShippingLabelComponent implements OnInit {
       console.log(data);
       this.shippingLabelRes=data;
       this.shippingLabelResString=JSON.stringify(data);
+      if(this.shippingLabelRes.errors!=null){
+        this.result=false
+      }
     })
     
    }

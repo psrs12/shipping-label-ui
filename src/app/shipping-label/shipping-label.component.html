@@ -45,8 +45,8 @@
         <div  class="report-full-width">
 
             <mat-form-field  >
-                <mat-label>Secrect Key</mat-label>
-                <input placeholder ="Secrect Key"  matInput   [(ngModel)]="shippingLabelRequest.secretKey"  name="secretKey" required>
+                <mat-label>Secret Key</mat-label>
+                <input placeholder ="Secret Key"  matInput   [(ngModel)]="shippingLabelRequest.secretKey"  name="secretKey" required>
                 <mat-error *ngIf="shippingLabelRequest.secretKey===''">you must enter a value</mat-error>
             </mat-form-field>
 
@@ -118,7 +118,7 @@
     </button>
 </div>
 
-<div  class="report-full-width" *ngIf="result===true && shippingLabelRes.errors!==null &&shippingLabelRes.errors.length===0" >
+<div  class="report-full-width" *ngIf="result===true" >
    
     <h4>Label Response</h4> 
   <span></span>
@@ -129,7 +129,7 @@
 </div>  
 
 </div>   
-<div  class="report-full-width" *ngIf="shippingLabelRes.errors.length>0" >
+<div  class="report-full-width" *ngIf="result===false" >
    
     <h4>Label Response</h4> 
   <span></span>
