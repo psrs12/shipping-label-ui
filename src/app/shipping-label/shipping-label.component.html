@@ -12,7 +12,7 @@
                             <span class="icon-bar"></span>
                         </button>
                         <a id="Logo" class="navbar-brand" href="#"><img
-                                style="max-width:160px; margin-top:-10px;margin-left:-700px"
+                                style="max-width:160px; margin-top:-10px;margin-left:-00px"
                                 src="assets/AmazonDFLogo.png" alt="ShipLabel API Scratchpad"></a>
                     </div>
 
@@ -96,7 +96,7 @@
                                                         <label for="PartnerTag">Client Id</label>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                        <input class="form-control-a" 
+                                                        <input class="form-control-a"
                                                             [(ngModel)]="shippingLabelRequest.clientId" name="clientId"
                                                             required>
                                                         <div class="help-block with-errors"></div>
@@ -111,7 +111,7 @@
                                                         <label for="PartnerTag">Client Secret</label>
                                                     </div>
                                                     <div class="col-sm-3">
-                                                        <input  class="form-control-a" type="password"
+                                                        <input class="form-control-a" type="password"
                                                             [(ngModel)]="shippingLabelRequest.clientSecret"
                                                             name="clientSecret" required>
                                                         <div class="help-block with-errors"></div>
@@ -129,8 +129,7 @@
                                                             <label for="RefreshToken">Refresh Token</label>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <textarea  name="refreshToken" 
-                                                               class="form-control-a"
+                                                            <textarea name="refreshToken" class="form-control-a"
                                                                 cdkTextareaAutosize cdkAutosizeMinRows="2"
                                                                 cdkAutosizeMaxRows="50"
                                                                 [(ngModel)]="shippingLabelRequest.refreshToken"
@@ -147,7 +146,7 @@
                                                             <label for="SecretAccessKey">Access Key</label>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <input  class="form-control-a"
+                                                            <input class="form-control-a"
                                                                 [(ngModel)]="shippingLabelRequest.accessKey"
                                                                 name="accessKey" required>
                                                         </div>
@@ -160,8 +159,7 @@
                                                             <label for="SecretAccessKey">Secret Access Key</label>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <input  type="password"
-                                                            class="form-control-a"
+                                                            <input type="password" class="form-control-a"
                                                                 [(ngModel)]="shippingLabelRequest.secretKey"
                                                                 name="secretKey" required>
                                                         </div>
@@ -174,8 +172,7 @@
                                                             <label for="PurchaseOrder">PurchaseOrder#</label>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <input 
-                                                            class="form-control-a"
+                                                            <input class="form-control-a"
                                                                 [(ngModel)]="shippingLabelRequest.orderNumber"
                                                                 name="orderNumber" required>
                                                         </div>
@@ -189,10 +186,12 @@
                                                             <mat-radio-group
                                                                 aria-label="Single or Multi Container Shipping"
                                                                 [(ngModel)]="singleShipping" name="containerListGrp">
-                                                                <mat-radio-button [value]=true [checked]=true>Single-box Request
+                                                                <mat-radio-button [value]=true [checked]=true>Single-box
+                                                                    Request
                                                                 </mat-radio-button>
-                                                                &nbsp; &nbsp;
-                                                                <mat-radio-button [value]=false>Multi-box Request</mat-radio-button>
+                                                                &nbsp;&nbsp;
+                                                                <mat-radio-button [value]=false>Multi-box Request
+                                                                </mat-radio-button>
                                                             </mat-radio-group>
                                                         </div>
                                                     </div>
@@ -202,7 +201,7 @@
                                                                 <label for="SellingPartyID">SellingPartyID</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <input  class="form-control-a"
+                                                                <input class="form-control-a"
                                                                     [(ngModel)]="shippingLabelRequest.sellingPartyId"
                                                                     name="sellingPartyId" required>
                                                             </div>
@@ -215,7 +214,7 @@
                                                                 <label for="SecretAccessKey">ShipFromPartyID</label>
                                                             </div>
                                                             <div class="col-sm-3">
-                                                                <input class="form-control-a" 
+                                                                <input class="form-control-a"
                                                                     [(ngModel)]="shippingLabelRequest.shipFromPartyId"
                                                                     name="shipFromPartyId" required>
                                                             </div>
@@ -229,7 +228,7 @@
                                                             <label for="ContainerList">ContainerList</label>
                                                         </div>
                                                         <div class="col-sm-3">
-                                                            <textarea  name="containerList" class="form-control-a"
+                                                            <textarea name="containerList" class="form-control-a"
                                                                 cdkTextareaAutosize cdkAutosizeMinRows="5"
                                                                 cdkAutosizeMaxRows="100"
                                                                 [(ngModel)]="shippingLabelRequest.containerList"
@@ -250,7 +249,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <button id="RequestButton" class="btn btn-primary-a pull-right"
-                                                    type="submit" style="margin-left:10px;">Run request</button>
+                                                    type="submit"  style="margin-left:10px;">Run request</button>
                                             </div>
 
                                         </div><!-- Request Parameter Panel Footer -->
@@ -296,46 +295,47 @@
         <p class="tab-header">Response details</p>
         <div class="hr-a"></div>
         <ul class="nav nav-tabs-a" id="ResponseTabs">
-
             <li id="JSONResponse" class="ResponseTab"><a href="#JSONSection">JSON response</a></li>
-
         </ul><!-- Tabs for Response -->
-        
-        <div class="tab-content">
-           
-            <div id="RenderedSection" >
-                
 
-              
-               <span id="FullScreenJSON" class="btn-clipboard-Code" data-toggle="tooltip" data-placement="right"
-                        title="" data-original-title="Full screen">
-                        <span class="glyphicon glyphicon-modal-window"></span>
-                    </span>
-                        
-                <code  class="json hljs" id="JSONHighlighted" >
-                   
+        <div class="tab-content" >
+            <div id="RenderedSection">
+                <span id="FullScreenJSON" class="btn-clipboard-Code" data-toggle="tooltip" data-placement="right"
+                    title="" data-original-title="Full screen">
+                    <span class="glyphicon glyphicon-modal-window"></span>
+                </span>
+                <code class="json hljs" id="JSONHighlighted">
                     <div class="pre-scrollable" >
-                        
           <span class="hljs-value">
            
-        <div   *ngIf="result===true" >
+        <div id="scs_response" *ngIf="result===true" >
+            <div ></div>
             <span >{{shippingLabelResString | json}}</span>
         </div>
-        <div   *ngIf="result===false" >
+        <div  id="flr_response" *ngIf="result===false" >
             <ul  *ngFor="let error of shippingLabelRes.errors">
              <li class="hljs-string">{{error.message}}</li>
              <li class="hljs-string">{{error.message}}</li>
             </ul>
         </div>
         </span>
-                    </div>
+           </div>
     </code>
+    <div class="panel-footer" *ngIf="result===true" >
+        <div class="col-sm-3">
+            <!-- Toggle Button For JSON -->
+        </div>
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-6">
+            <button id="RequestButton" class="btn btn-primary-a pull-right"
+                (click)="viewShippingLabel()" style="margin-left:10px;">View Shipping Label</button>
+        </div>
 
-              
-
+    </div><!-- Request Parameter Panel Footer -->
             </div>
         </div>
     </div><!-- Tab-Content Response Tabs -->
-
-
-   
+    <div></div>
+    <br>
+    <div [innerHtml]="rawHtml | safePipe"></div>

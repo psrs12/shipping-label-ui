@@ -1,0 +1,13 @@
+<button id="downloadImageButton" class="btn btn-primary-a pull-right" (click)="closeModal()"
+style="margin-right:5px;">Close</button>
+<button id="CloseButton" class="btn btn-primary-a pull-right" (click)="downloadImage()"
+    style="margin-right:10px;">Download Image</button>
+<div *ngFor="let label of labelData">
+    <p>
+        <img src="data:image/png;base64,{{label.content}}" />
+    </p>
+</div>
+<button id="downloadImageButton" class="btn btn-primary-a pull-right" (click)="closeModal()"
+style="margin-right:5px;">Close</button>
+<button id="CloseButton" class="btn btn-primary-a pull-right" (click)="downloadImage()"
+    style="margin-right:10px;">Download Image</button>

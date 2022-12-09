@@ -14,11 +14,14 @@ import { FormsModule } from '@angular/forms';
 import {MatListModule} from '@angular/material/list'; 
 import {MatRadioModule} from '@angular/material/radio';
 import { SafePipePipe } from './safe-pipe.pipe'; 
+import { MatDialogModule } from '@angular/material/dialog';
+import { ViewLabelComponent } from './shipping-label/view-label/view-label.component';
 @NgModule({
   declarations: [
     AppComponent,
     ShippingLabelComponent,
-    SafePipePipe
+    SafePipePipe,
+    ViewLabelComponent
   ],
   imports: [
     BrowserModule,
@@ -33,6 +36,8 @@ import { SafePipePipe } from './safe-pipe.pipe';
     FormsModule,
     MatRadioModule,
     MatListModule,
+    MatDialogModule,
+    
 
      ],
   providers: [],
