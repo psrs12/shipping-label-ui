@@ -49,7 +49,10 @@
                                     <li class="left-panel-list name"><a href="#" id="SearchItems_link">ShipLabel API</a>
                                     </li>
                                     <li class="left-panel-list name"><a href="#"
-                                            id="SearchItems_link">ShipmentConfirmation API</a></li>
+                                            id="SearchItems_link">ShipmentConfirmation API</a>
+                                    </li>
+                                    <li class="left-panel-list name"><a href="#" id="SearchItems_link">Invoice API</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -249,7 +252,7 @@
                                             </div>
                                             <div class="col-sm-6">
                                                 <button id="RequestButton" class="btn btn-primary-a pull-right"
-                                                    type="submit"  style="margin-left:10px;">Run request</button>
+                                                    type="submit" style="margin-left:10px;">Run request</button>
                                             </div>
 
                                         </div><!-- Request Parameter Panel Footer -->
@@ -298,7 +301,7 @@
             <li id="JSONResponse" class="ResponseTab"><a href="#JSONSection">JSON response</a></li>
         </ul><!-- Tabs for Response -->
 
-        <div class="tab-content" >
+        <div class="tab-content">
             <div id="RenderedSection">
                 <span id="FullScreenJSON" class="btn-clipboard-Code" data-toggle="tooltip" data-placement="right"
                     title="" data-original-title="Full screen">
@@ -321,18 +324,18 @@
         </span>
            </div>
     </code>
-    <div class="panel-footer" *ngIf="result===true" >
-        <div class="col-sm-3">
-            <!-- Toggle Button For JSON -->
-        </div>
-        <div class="col-sm-3">
-        </div>
-        <div class="col-sm-6">
-            <button id="RequestButton" class="btn btn-primary-a pull-right"
-                (click)="viewShippingLabel()" style="margin-left:10px;">View Shipping Label</button>
-        </div>
+                <div class="panel-footer" *ngIf="result===true">
+                    <div class="col-sm-3">
+                        <!-- Toggle Button For JSON -->
+                    </div>
+                    <div class="col-sm-3">
+                    </div>
+                    <div class="col-sm-6">
+                        <button id="RequestButton" class="btn btn-primary-a pull-right" (click)="viewShippingLabel()"
+                            style="margin-left:10px;">View Shipping Label</button>
+                    </div>
 
-    </div><!-- Request Parameter Panel Footer -->
+                </div><!-- Request Parameter Panel Footer -->
             </div>
         </div>
     </div><!-- Tab-Content Response Tabs -->
